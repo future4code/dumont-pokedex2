@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import HomePage from "../Screens/HomePage"
 import PokeDetailPage from "../Screens/PokeDetailPage"
 import PokedexPage from "../Screens/PokedexPage"
+import Header from "../Components/Header"
 
 const Router = () => {
     return(
