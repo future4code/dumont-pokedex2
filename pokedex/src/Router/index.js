@@ -4,6 +4,7 @@ import HomePage from "../Screens/HomePage"
 import Header from "../Components/Header"
 import PokeDetailPage from "../Screens/PokeDetailPage"
 import PokedexPage from "../Screens/PokedexPage"
+import Header from "../Components/Header"
 
 const Router = () => {
     return(
