@@ -1,34 +1,22 @@
-import React from "react";
-import styled from 'styled-components';
+import React, { useContext } from "react";
 import CardPokemon from "../../Components/CardPokemon/CardPokemon";
-
-const DivCard = styled.div`
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-`
+import ContextPoke from "../../Contexts/ContextPoke";
+import { useRequestData } from "../../Hooks/useRequestData";
+import { DivCard } from "./styled";
+import { baseUrl } from "../../Constant/url";
+import { NavItem } from "react-bootstrap";
 
 const HomePage = () => {
-    return(
-        <DivCard>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-            <CardPokemon/>
-        </DivCard>
-    )
-}
+  const pokemon = useContext(ContextPoke);
+  const getPokemons = useRequestData(`${baseUrl}`, undefined);
+  return (
+    <DivCard>
+      {getPokemons &&
+        getPokemons.results.map((item) => {
+          return <CardPokemon url={item.url} />;
+        })}
+    </DivCard>
+  );
+};
 
-export default HomePage
+export default HomePage;
