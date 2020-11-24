@@ -21,7 +21,7 @@ const Header = (props) => {
   };
 
   return (
-    <NavBar bg="danger" text="Yellow" expand="lg">
+    <NavBar bg="danger" expand="lg">
       <Navbar.Brand>
         <img src={Logo} width="50" alt="Pokdex logo" />
       </Navbar.Brand>
@@ -34,8 +34,8 @@ const Header = (props) => {
         </Nav>
         <NavLink>PokeList</NavLink>
         <Nav className="ml-auto">
-          {props.buttonTitle != "" ? (
-            <p></p>
+          {props.buttonTitle !== "" ? (
+            null
           ) : (
             <StyledButton onClick={() => props.buttonDetailPage(history)}>
               Ir para pokedex
