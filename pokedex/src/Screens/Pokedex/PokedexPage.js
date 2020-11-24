@@ -1,5 +1,5 @@
 import React from "react";
-import CardPokemon from "../Components/CardPokemon";
+import CardPokemon from "../../Components/CardPokemon/CardPokemon";
 
 const PokedexPage = () => {
     return(

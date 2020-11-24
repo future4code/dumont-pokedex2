@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../Assets/charmander.webp"
+import image from "../../Assets/charmander.webp"
 import {PokeDetails, PokeImg, DivPokeImg, DivDetails, DivMoves, DivTypes, DivTypeAndMoves, Title} from "./styled"
 
 const PokeDetailPage = () => {

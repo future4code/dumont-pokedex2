@@ -1,28 +1,45 @@
-import React from "react"
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import HomePage from "../Screens/HomePage"
-import Header from "../Components/Header"
-import PokeDetailPage from "../Screens/PokeDetailPage"
-import PokedexPage from "../Screens/PokedexPage"
-
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HomePage from "../Screens/HomePage/HomePage";
+import Header from "../Components/Header/Header";
+import PokeDetailPage from "../Screens/PokeDetail/PokeDetailPage";
+import PokedexPage from "../Screens/Pokedex/PokedexPage";
 
 const Router = () => {
-    return(
-        <BrowserRouter>
-            <Switch>
-                <Route exact path="/">
-                    <Header/>
-                    <HomePage/>
-                </Route>
-                <Route exact path="/pokedetail/:pokeName">
-                    <PokeDetailPage/>
-                </Route>
-                <Route exact path="/pokedex"> 
-                    <PokedexPage/>
-                </Route>
-            </Switch>
-        </BrowserRouter>
-    )
-}
+  const goBack = (history) => {
+    history.goBack();
+  };
 
-export default Router
+  const goToHomePage = (history) => {
+    history.push("/");
+  };
+
+  const goToPokedex = (history) => {
+    history.push("/pokedex");
+  };
+
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Header buttonTitle="Lista de pokemons" buttonFunction={goToPokedex} />
+          <HomePage />
+        </Route>
+        <Route exact path="/pokedetail/:pokeName">
+          <Header
+            buttonTitle=""
+            buttonFunction={goBack}
+            buttonDetailPage={goToPokedex}
+          />
+          <PokeDetailPage />
+        </Route>
+        <Route exact path="/pokedex">
+          <Header buttonTitle="Pokedex" buttonFunction={goToHomePage} />
+          <PokedexPage />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
+export default Router;
