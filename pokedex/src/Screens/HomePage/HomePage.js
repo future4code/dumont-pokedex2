@@ -1,19 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import CardPokemon from "../../Components/CardPokemon/CardPokemon";
-import ContextPoke from "../../Contexts/ContextPoke";
-import { useRequestData } from "../../Hooks/useRequestData";
 import { DivCard } from "./styled";
-import { baseUrl } from "../../Constant/url";
-import { NavItem } from "react-bootstrap";
+import GlobalStateContext from "../../Global/GlobalStateContext"
 
 const HomePage = () => {
-  const pokemon = useContext(ContextPoke);
-  const getPokemons = useRequestData(`${baseUrl}`, undefined);
+  const { states, setters, requests } = useContext(GlobalStateContext)
+  
+  useEffect(() => {
+    requests.getPokemons();
+  }, [requests.getPokemons]);
+
+  const addPokemontoPokedex = (newPokemon) => {
+    const index = states.pokedex.findIndex((i) => i.pokeName === newPokemon.pokeName);
+    let newPokedex = [...states.pokedex];
+    if(index === -1 ) {
+      newPokedex.push({newPokemon}) 
+    }
+    setters.setPokedex(newPokedex);
+    alert(`${newPokemon.name} agora está na sua pokedex!`)
+    console.log(newPokedex)
+    
+  }
+
   return (
     <DivCard>
-      {getPokemons &&
-        getPokemons.results.map((item) => {
-          return <CardPokemon url={item.url} />;
+      {states.pokemons &&
+        states.pokemons.map((item) => {
+          return <CardPokemon url={item.url} goToPokedex={() => addPokemontoPokedex(item)}/>;
         })}
     </DivCard>
   );
