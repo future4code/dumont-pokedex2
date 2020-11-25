@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { useRequestData } from "../../Hooks/useRequestData"
 import { baseUrl } from "../../Constant/url"
 import image from "../../Assets/charmander.webp"
-import {PokeDetails, PokeImg, DivPokeImg, DivDetails, DivMoves, DivTypes, DivTypeAndMoves, Title} from "./styled"
+import {PokeDetails, PokeImg, DivPokeImg, DivPowers, DivMoves, DivMoveName, DivTypes, DivTypeAndMoves, Title} from "./styled"
 
 const PokeDetailPage = () => {
     const params = useParams()
@@ -18,14 +18,14 @@ const PokeDetailPage = () => {
                 <PokeImg src={getDetails.sprites.front_default}/>
                 <PokeImg src={getDetails.sprites.back_default}/>
             </DivPokeImg>
-            <DivDetails>
+            <DivPowers>
                 <Title>Poderes</Title>
                 {getDetails.stats.map(stat => {
                     return(
                     <p>{stat.stat.name}: {stat.base_stat}</p>
                     )
                 })}
-            </DivDetails>
+            </DivPowers>
             <DivTypeAndMoves>
             <DivTypes>
                 <Title>Tipo</Title>
@@ -33,16 +33,19 @@ const PokeDetailPage = () => {
                     return(
                     <p>{type.type.name}</p>
                     )
+                    //poderia usar indexcomo parâmetro e fazer um curto cirtcuito setando apenas os 5 primeiros moves.
                 })}
             </DivTypes>
             <DivMoves>
-            <h2>Principais Ataques</h2>
-            {getDetails.moves.map((move, index) => {
+            <Title>Movimentos</Title>
+            <DivMoveName>
+            {getDetails.moves.map((move) => {
+                console.log(move.move.name)
                 return(
-                index < 5 ? <p>{move.move.name}</p> : null
+                <p>{move.move.name}</p>
                 )
-                //tirar o index e imprimir todos os moves e colocar numa caixa com uma barra de rolangem
             })}
+            </DivMoveName>
             </DivMoves>
             </DivTypeAndMoves>
         </PokeDetails>}

@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const PokeDetails = styled.main`
-    height: 80vh;
-    margin: 20px 10vw;
+    height: 90vh;
+    margin: 10px 10vw;
     display: flex;
     justify-content: space-evenly;
 `
@@ -19,7 +19,7 @@ export const PokeImg = styled.img `
     height: 25vh;
 `
 
-export const DivDetails = styled.div`
+export const DivPowers = styled.div`
     align-self: center;
     height: 75%;
     width: 300px;
@@ -30,7 +30,7 @@ export const DivDetails = styled.div`
 `
 
 export const Title = styled.h2`
-    align-self: center;
+    align-self: flex-start;
 `
 
 export const DivTypeAndMoves = styled.div`
@@ -53,6 +53,8 @@ export const DivMoves = styled.div`
     height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     padding-left: 20px;
+`
+export const DivMoveName = styled.div`
+    overflow-y: auto;
 `
