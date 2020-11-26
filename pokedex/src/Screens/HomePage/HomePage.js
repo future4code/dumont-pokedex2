@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import CardPokemon from "../../Components/CardPokemon/CardPokemon";
+import Pokelist from "../Pokelist/Pokelist";
 import { DivCard } from "./styled";
 import GlobalStateContext from "../../Global/GlobalStateContext"
 
@@ -11,22 +11,21 @@ const HomePage = () => {
   }, [requests.getPokemons]);
 
   const addPokemontoPokedex = (newPokemon) => {
-    const index = states.pokedex.findIndex((i) => i.pokeName === newPokemon.pokeName);
     let newPokedex = [...states.pokedex];
-    if(index === -1 ) {
-      newPokedex.push({newPokemon}) 
-    }
+    // let newPokemons = [...states.pokemons];
+    newPokedex.push(newPokemon)
+    // newPokemons.splice(newPokemon)
     setters.setPokedex(newPokedex);
-    alert(`${newPokemon.name} agora está na sua pokedex!`)
-    console.log(newPokedex)
     
+    alert(`${newPokemon.name} agora está na sua pokedex!`)
   }
+
 
   return (
     <DivCard>
       {states.pokemons &&
         states.pokemons.map((item) => {
-          return <CardPokemon url={item.url} goToPokedex={() => addPokemontoPokedex(item)}/>;
+          return <Pokelist url={item.url} goToPokedex={() => addPokemontoPokedex(item)}/>;
         })}
     </DivCard>
   );
