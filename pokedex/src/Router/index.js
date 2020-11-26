@@ -5,6 +5,7 @@ import Header from "../Components/Header/Header";
 import PokeDetailPage from "../Screens/PokeDetail/PokeDetailPage";
 import PokedexPage from "../Screens/Pokedex/PokedexPage";
 
+
 const Router = () => {
   const goBack = (history) => {
     history.goBack();
@@ -23,19 +24,14 @@ const Router = () => {
       <Switch>
         <Route exact path="/">
           <Header buttonTitle="Lista de pokemons" buttonFunction={goToPokedex} />
-          <HomePage />
+          <HomePage/>
         </Route>
         <Route exact path="/pokedetail/:pokeName">
-          <Header
-            buttonTitle=""
-            buttonFunction={goBack}
-            buttonDetailPage={goToPokedex}
-          />
           <PokeDetailPage />
         </Route>
         <Route exact path="/pokedex">
           <Header buttonTitle="Pokedex" buttonFunction={goToHomePage} />
-          <PokedexPage />
+          <PokedexPage/>
         </Route>
       </Switch>
     </BrowserRouter>

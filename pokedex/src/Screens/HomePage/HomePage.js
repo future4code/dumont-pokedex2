@@ -10,7 +10,7 @@ const HomePage = () => {
     <DivCard>
       {states.pokemons &&
         states.pokemons.map((item) => {
-          return <Pokelist url={item.url} item={item}/>;
+          return <Pokelist url={item.url} item={item} onPokedex={false}/>
         })}
     </DivCard>
   );

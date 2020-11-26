@@ -10,9 +10,9 @@ const Pokelist = (props) => {
     const { states, setters} = useContext(GlobalStateContext)
     const pokemon = useRequestData(props.url, undefined)
     const history = useHistory();
-    const [onPokedex, setOnPokedex] = useState(true)
 
-    const addPokemontoPokedex = (newPokemon) => {
+
+    const addPokemonToPokedex = (newPokemon) => {
         const index = states.pokemons.findIndex((i) => i.name === newPokemon.name)
 
         let newPokedex = [...states.pokedex];
@@ -24,24 +24,24 @@ const Pokelist = (props) => {
         setters.setPokedex(newPokedex);
         setters.setPokemons(newPokemons)
 
-        alert(`${newPokemon.name} agora está na sua pokedex!`)
+        alert(`${newPokemon.name} agora está na sua pokedex!`)   
     }
 
-    
+
 
 const goToPokeDetailsPage = (history, pokeName) => {
     history.push(`/pokedetail/${pokeName}`); 
-    setOnPokedex(!onPokedex)
 }
 
 return(
     <div>
     {pokemon &&
     <CardPokemon
-        image={pokemon.sprites.front_default}
-        goTo={() => addPokemontoPokedex(props.item)}
+        image={pokemon.sprites.other.dream_world.front_default}
+        goTo={() => addPokemonToPokedex(props.item)}
         goToDetails={() => goToPokeDetailsPage(history, pokemon.name)}
-        onPokedex= {onPokedex}
+        removePokemonFromPokedex={props.removePokemonFromPokedex}
+        onPokedex= {props.onPokedex}
     />
     }
     </div>

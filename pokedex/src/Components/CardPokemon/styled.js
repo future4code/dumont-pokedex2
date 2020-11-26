@@ -1,13 +1,14 @@
 import styled from "styled-components"
-import background from "../../Assets/pokeball.jpg"
+import background from "../../Assets/pokeball3.jpg"
 
 export const CardContainer = styled.div`
     height: 35vh;
     width: 250px;
-    margin: 10px;
+    margin: 3em 10px;
     display: grid;
     grid-template-rows: 90% 10%;
-    margin-bottom: 2em;
+    border: 2px solid black;
+    border-radius: 10px 10px 0px 0px;
 `
 
 export const ImgContainer = styled.div`
@@ -15,10 +16,12 @@ export const ImgContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px 10px 0px 0px;
+
 `
 
 export const PokeImg = styled.img`
-    height: 75%;
+    width: 50%;
 `
 
 export const ButtonsContainer = styled.div`

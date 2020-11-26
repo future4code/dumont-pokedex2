@@ -1,17 +1,38 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useParams } from "react-router-dom"
 import { useRequestData } from "../../Hooks/useRequestData"
 import { baseUrl } from "../../Constant/url"
-import image from "../../Assets/charmander.webp"
 import {PokeDetails, PokeImg, DivPokeImg, DivPowers, DivMoves, DivMoveName, DivTypes, DivTypeAndMoves, Title} from "./styled"
+import HeaderDetails from "../../Components/Header/HeaderDetails"
+import GlobalStateContext from "../../Global/GlobalStateContext"
 
 const PokeDetailPage = () => {
     const params = useParams()
+    const { states, setters} = useContext(GlobalStateContext)
     const getDetails = useRequestData(`${baseUrl}/${params.pokeName}`, undefined)
+    const newPokemon = {name: params.pokeName, url: `${baseUrl}/${params.pokeName}`}
 
-    console.log(getDetails)
+    const verifyToAddOrRemove = (newPokemon) => {
+        const indexPokedex = states.pokedex.findIndex((i) => i.name === newPokemon.name)
+        const indexPokeList = states.pokemons.findIndex((i) => i.name === newPokemon.name) 
+        
+        let newPokedex = [...states.pokedex];
+        let newPokemons = [...states.pokemons];
+
+        if(indexPokedex === -1) {
+            newPokedex.push(newPokemon)
+            newPokemons.splice(indexPokeList, 1)
+        }else {
+            newPokedex.splice(indexPokedex, 1)
+            newPokemons.push(newPokemon)
+        }
+        setters.setPokedex(newPokedex);
+        setters.setPokemons(newPokemons)
+    }
+
     return(
         <div>
+            <HeaderDetails pokeName={params.pokeName} verify= {() => verifyToAddOrRemove(newPokemon)}/>
             {getDetails &&
         <PokeDetails>
             <DivPokeImg>
@@ -40,7 +61,6 @@ const PokeDetailPage = () => {
             <Title>Movimentos</Title>
             <DivMoveName>
             {getDetails.moves.map((move) => {
-                console.log(move.move.name)
                 return(
                 <p>{move.move.name}</p>
                 )
