@@ -14,14 +14,20 @@ const Pokelist = (props) => {
 
     const addPokemontoPokedex = (newPokemon) => {
         const index = states.pokemons.findIndex((i) => i.name === newPokemon.name)
+
         let newPokedex = [...states.pokedex];
         let newPokemons = [...states.pokemons];
+
         newPokedex.push(newPokemon)
         newPokemons.splice(index, 1)
+
         setters.setPokedex(newPokedex);
         setters.setPokemons(newPokemons)
+
         alert(`${newPokemon.name} agora está na sua pokedex!`)
-      }
+    }
+
+    
 
 const goToPokeDetailsPage = (history, pokeName) => {
     history.push(`/pokedetail/${pokeName}`); 
