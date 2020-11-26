@@ -4,6 +4,7 @@ import { useRequestData } from "../../Hooks/useRequestData";
 import CardPokemon from "../../Components/CardPokemon/CardPokemon";
 import Pokelist from "../Pokelist/Pokelist"
 import GlobalStateContext from "../../Global/GlobalStateContext"
+import { PokedexCard } from "./styled";
 
 
 const PokedexPage = (props) => {
@@ -17,12 +18,12 @@ const PokedexPage = (props) => {
     }
 
     return(
-        <div>
+        <PokedexCard>
         {states.pokedex &&
         states.pokedex.map((pokemon) => {
         return <Pokelist url={pokemon.url}/>;
         })}
-        </div>
+        </PokedexCard>
     )
 }
 
