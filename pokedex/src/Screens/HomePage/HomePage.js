@@ -1,15 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Pokelist from "../Pokelist/Pokelist";
 import { DivCard } from "./styled";
 import GlobalStateContext from "../../Global/GlobalStateContext"
 
 const HomePage = () => {
-  const { states, requests } = useContext(GlobalStateContext)
-  
-  useEffect(() => {
-    requests.getPokemons();
-  }, [requests.getPokemons]);
-
+  const { states} = useContext(GlobalStateContext)
 
   return (
     <DivCard>
