@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import background from "../../Assets/pokeball.jpg"
 
 export const CardContainer = styled.div`
     height: 35vh;
@@ -10,7 +11,7 @@ export const CardContainer = styled.div`
 `
 
 export const ImgContainer = styled.div`
-    background: lightgray;
+    background-image: url(${background});
     display: flex;
     justify-content: center;
     align-items: center;
