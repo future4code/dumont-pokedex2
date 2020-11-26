@@ -1,15 +1,12 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const StyledButtonCard = styled.button`
   z-index: 1;
-  font-family: inherit;
-  color: #ffd500;
-  font-size: 1em;
-  padding: 0.5em;
+  font-size: 0.7em;
+  padding: 1em;
   outline: none;
-  border:none;
-  border-radius: 7px;
-  background-color: transparent;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #DC3545;
 
   :hover {
     cursor: pointer;
