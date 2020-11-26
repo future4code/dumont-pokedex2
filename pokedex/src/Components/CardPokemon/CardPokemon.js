@@ -1,32 +1,20 @@
-import React, { useState } from 'react';
-import { useHistory } from "react-router-dom"
-import { useRequestData } from "../../Hooks/useRequestData";
+import React from 'react';
 import {CardContainer, ImgContainer, ButtonsContainer, PokeImg} from "./styled"
 
 function CardPokemon(props) {
-    const [onPokedex, setOnPokedex] = useState(true)
-    const pokemon = useRequestData(props.url, undefined)
-    const history = useHistory();
-
-
-    const goToPokeDetailsPage = (history, pokeName) => {
-        history.push(`/pokedetail/${pokeName}`); 
-        setOnPokedex(!onPokedex)
-    }
-
     return(
         <div>
-        {pokemon && <CardContainer>
+        <CardContainer>
         <ImgContainer>
-                <PokeImg src={pokemon.sprites.front_default}/>
+                <PokeImg src={props.image}/>
             </ImgContainer>
             <ButtonsContainer>
-                {onPokedex ? <button onClick={props.goToPokedex}>Adicionar a Pokedex</button>
+                {props.onPokedex ? <button onClick={props.goTo}>Adicionar a Pokedex</button>
                 :
                 <button>Remover</button>}
-                <button onClick={() => goToPokeDetailsPage(history, pokemon.name)}>Ver detalhes</button>
+                <button onClick={props.goToDetails}>Ver detalhes</button>
             </ButtonsContainer>
-        </CardContainer>}
+        </CardContainer>
         </div>
     )
 }
