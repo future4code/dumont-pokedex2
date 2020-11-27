@@ -1,44 +1,18 @@
-import React, {useContext, useState} from "react";
+import React from "react";
 import { useParams } from "react-router-dom"
 import { useRequestData } from "../../Hooks/useRequestData"
 import { baseUrl } from "../../Constant/url"
 import {PokeDetails, PokeImg, DivPokeImg, DivPowers, DivMoves, DivMoveName, DivTypes, DivTypeAndMoves, Title} from "./styled"
 import HeaderDetails from "../../Components/Header/HeaderDetails"
-import GlobalStateContext from "../../Global/GlobalStateContext"
 
 const PokeDetailPage = () => {
     const params = useParams()
-    const { states, setters} = useContext(GlobalStateContext)
     const getDetails = useRequestData(`${baseUrl}/${params.pokeName}`, undefined)
-    const [onPokedex, setonPokedex] = useState()
     const newPokemon = {name: params.pokeName, url: `${baseUrl}/${params.pokeName}`}
-
-    const verifyToAddOrRemove = (newPokemon) => {
-        const indexPokedex = states.pokedex.findIndex((i) => i.name === newPokemon.name)
-        const indexPokeList = states.pokemons.findIndex((i) => i.name === newPokemon.name) 
-        
-        let newPokedex = [...states.pokedex];
-        let newPokemons = [...states.pokemons];
-
-        if(indexPokedex === -1) {
-            newPokedex.push(newPokemon)
-            setonPokedex(true)
-            newPokemons.splice(indexPokeList, 1)
-            window.alert("O Pokémon foi adicionado a sua Pokedex!")
-        }else {
-            newPokedex.splice(indexPokedex, 1)
-            newPokemons.push(newPokemon)
-            setonPokedex(false)
-            window.alert("O Pokémon foi removido da sua Pokedex!")
-        }
-        setters.setPokedex(newPokedex);
-        setters.setPokemons(newPokemons)
-    }
 
     return(
         <div>
-            <HeaderDetails pokeName={params.pokeName} verify= {() => verifyToAddOrRemove(newPokemon)}
-            onPokedex={onPokedex}
+            <HeaderDetails pokeName={params.pokeName} pokemon= {newPokemon}
             />
             {getDetails &&
         <PokeDetails>
