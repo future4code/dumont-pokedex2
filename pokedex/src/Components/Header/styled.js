@@ -2,10 +2,12 @@ import styled from 'styled-components';
 import {Nav, Navbar} from "react-bootstrap";
 
 export const NavBar = styled(Navbar)`
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Pokemon Solid";
+
 `
 export const NavLink = styled(Nav)`
     color: #ffd500;
-    font-size: 2em;
+    font-size: 3.5em;
     align-items: center;
+    margin-bottom: 15px;
 `

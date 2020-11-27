@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import { useParams } from "react-router-dom"
 import { useRequestData } from "../../Hooks/useRequestData"
 import { baseUrl } from "../../Constant/url"
@@ -10,6 +10,7 @@ const PokeDetailPage = () => {
     const params = useParams()
     const { states, setters} = useContext(GlobalStateContext)
     const getDetails = useRequestData(`${baseUrl}/${params.pokeName}`, undefined)
+    const [onPokedex, setonPokedex] = useState()
     const newPokemon = {name: params.pokeName, url: `${baseUrl}/${params.pokeName}`}
 
     const verifyToAddOrRemove = (newPokemon) => {
@@ -21,10 +22,14 @@ const PokeDetailPage = () => {
 
         if(indexPokedex === -1) {
             newPokedex.push(newPokemon)
+            setonPokedex(true)
             newPokemons.splice(indexPokeList, 1)
+            window.alert("O Pokémon foi adicionado a sua Pokedex!")
         }else {
             newPokedex.splice(indexPokedex, 1)
             newPokemons.push(newPokemon)
+            setonPokedex(false)
+            window.alert("O Pokémon foi removido da sua Pokedex!")
         }
         setters.setPokedex(newPokedex);
         setters.setPokemons(newPokemons)
@@ -32,7 +37,9 @@ const PokeDetailPage = () => {
 
     return(
         <div>
-            <HeaderDetails pokeName={params.pokeName} verify= {() => verifyToAddOrRemove(newPokemon)}/>
+            <HeaderDetails pokeName={params.pokeName} verify= {() => verifyToAddOrRemove(newPokemon)}
+            onPokedex={onPokedex}
+            />
             {getDetails &&
         <PokeDetails>
             <DivPokeImg>

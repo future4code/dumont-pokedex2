@@ -4,7 +4,7 @@ import { useRequestData } from "../../Hooks/useRequestData";
 import CardPokemon from "../../Components/CardPokemon/CardPokemon";
 import Pokelist from "../Pokelist/Pokelist"
 import GlobalStateContext from "../../Global/GlobalStateContext"
-import { PokedexCard } from "./styled";
+import { PokedexCard, Messege } from "./styled";
 
 
 const PokedexPage = () => {
@@ -27,7 +27,10 @@ const PokedexPage = () => {
 
     return(
         <PokedexCard>
-        {states.pokedex &&
+        {states.pokedex.length === 0 ?
+        <Messege>Sua pokedex está vazia!</Messege>
+        :
+        states.pokedex &&
         states.pokedex.map((pokemon) => {
         return <Pokelist url={pokemon.url} removePokemonFromPokedex={() => removePokemonFromPokedex(pokemon)} onPokedex={true}/>;
         })}

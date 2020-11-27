@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const StyledButtonCard = styled.button`
   z-index: 1;
   font-size: 0.7em;
-  padding: 1em;
+  padding: 0.5em;
   outline: none;
+  border-radius: 10px;
   font-family: 'Press Start 2P', cursive;
   background-color: #DC3545;
 
