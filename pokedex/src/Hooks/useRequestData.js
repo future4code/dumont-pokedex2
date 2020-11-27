@@ -4,6 +4,7 @@ import axios from "axios";
 export function useRequestData(url, initialState) {
   const [data, setData] = useState(initialState);
 
+  //Requisição de dados gerais da Api
   useEffect(() => {
     axios
       .get(url)

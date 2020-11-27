@@ -1,7 +1,4 @@
 import React, {useContext} from "react";
-import { useHistory } from "react-router-dom"
-import { useRequestData } from "../../Hooks/useRequestData";
-import CardPokemon from "../../Components/CardPokemon/CardPokemon";
 import Pokelist from "../Pokelist/Pokelist"
 import GlobalStateContext from "../../Global/GlobalStateContext"
 import { PokedexCard, Messege } from "./styled";
@@ -9,24 +6,19 @@ import { PokedexCard, Messege } from "./styled";
 
 const PokedexPage = () => {
     const { states, setters } = useContext(GlobalStateContext)
-    console.log(states.pokedex)
-    const removePokemonFromPokedex = (pokemonToRemove) => {
-        const index = states.pokedex.findIndex((i) => i.name === pokemonToRemove.name)
 
-        let newPokedex = [...states.pokedex];
-        let newPokemons = [...states.pokemons];
-
-        newPokedex.splice(index, 1)
-        newPokemons.push(pokemonToRemove)
-
-        setters.setPokedex(newPokedex);
-        setters.setPokemons(newPokemons)
-
-        alert(`${pokemonToRemove.name} deixou sua pokedex!`)
+    //Função de remover Pokemon da Pokedex e adicionar à Home
+    const removePokemonFromPokedex = (newPokemon) => {
+        const index = states.pokedex.findIndex((i) => i.name === newPokemon.name)
+        let newPokeList = [...states.pokemons, newPokemon];
+        states.pokedex.splice(index, 1)
+        setters.setPokemons(newPokeList);
+        alert(`${newPokemon.name} deixou sua pokedex!`)
     }
 
     return(
-        <PokedexCard>
+        //Se a pokedex estiver vazia, mostre a mensagem se não mostre a lista
+        <PokedexCard>    
         {states.pokedex.length === 0 ?
         <Messege>Sua pokedex está vazia!</Messege>
         :
