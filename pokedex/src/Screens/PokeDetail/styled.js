@@ -4,7 +4,8 @@ export const PokeDetails = styled.main`
   height: 90vh;
   margin: 10px 10vw;
   display: flex;
-  font-family: "Pokemon Solid";
+  font-size: 12px;
+  font-family: 'Press Start 2P', cursive;;
   justify-content: space-evenly;
   @media (min-device-width: 320px) and (max-device-width: 420px) {
       flex-direction: column;
@@ -43,10 +44,12 @@ export const DivPowers = styled.div`
   }
 `;
 
-export const Title = styled.h1
+export const Title = styled.h1`
+    font-size: 2em;
     align-self: flex-start;
+    padding-top: 10px;
     color: #007bff;
-    @meda (min-device-width: 320px) and (max-device-width: 420px) {
+    @media (min-device-width: 320px) and (max-device-width: 420px) {
       align-self: center;
   }
 `;
