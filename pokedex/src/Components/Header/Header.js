@@ -34,7 +34,7 @@ const Header = (props) => {
 
 
   return (
-    <NavBar bg="danger" expand="lg">
+    <NavBar bg="primary" expand="lg">
       <Navbar.Brand>
         <img src={Logo} width="50" alt="Pokdex logo" />
       </Navbar.Brand>

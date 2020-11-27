@@ -37,8 +37,7 @@ export const DivPowers = styled.div`
 
 export const Title = styled.h1`
     align-self: flex-start;
-    color: #DC3545;
-
+    color: #007bff;
 `
 
 export const DivTypeAndMoves = styled.div`
@@ -70,4 +69,5 @@ export const DivMoves = styled.div`
 `
 export const DivMoveName = styled.div`
     overflow-y: auto;
+    padding-top: 4em;
 `
