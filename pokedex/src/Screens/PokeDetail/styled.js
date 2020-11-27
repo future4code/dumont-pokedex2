@@ -43,10 +43,10 @@ export const DivPowers = styled.div`
   }
 `;
 
-export const Title = styled.h1`
-  align-self: flex-start;
-  color: #dc3545;
-  @media (min-device-width: 320px) and (max-device-width: 420px) {
+export const Title = styled.h1
+    align-self: flex-start;
+    color: #007bff;
+    @meda (min-device-width: 320px) and (max-device-width: 420px) {
       align-self: center;
   }
 `;
@@ -80,8 +80,5 @@ export const DivMoves = styled.div`
 `;
 
 export const DivMoveName = styled.div`
-  overflow-y: auto;
-  @media (min-device-width: 320px) and (max-device-width: 420px) {
-    overflow-y: auto;
-  }
+  padding-top: 4em;
 `;

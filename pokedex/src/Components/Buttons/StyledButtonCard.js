@@ -7,11 +7,12 @@ export const StyledButtonCard = styled.button`
   outline: none;
   border-radius: 10px;
   font-family: 'Press Start 2P', cursive;
-  background-color: #DC3545;
+  background-color: #ffd500;
 
   :hover {
     cursor: pointer;
     animation: jelly 0.5s;
+    background-color: #007bff;
   }
 
   @keyframes jelly {

@@ -61,8 +61,8 @@ const PokeDetailPage = () => {
               <Title>Movimentos</Title>
               <DivMoveName>
                 {/* Map para pegar os movimentos do pokémon */}
-                {getDetails.moves.map((move) => {
-                  return <p>{move.move.name}</p>;
+                {getDetails.moves.map((move, index) => {
+                  return index < 5 && <p>{move.move.name}</p>;
                 })}
               </DivMoveName>
             </DivMoves>

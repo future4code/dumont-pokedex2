@@ -43,7 +43,7 @@ const Header = (props) => {
   };
 
   return (
-    <NavBar bg="danger" expand="lg">
+    <NavBar bg="primary" expand="lg">
       <Navbar.Brand>
         <img src={Logo} width="50" alt="Pokdex logo" />
       </Navbar.Brand>
@@ -57,8 +57,8 @@ const Header = (props) => {
           <StyledButton onClick={() => verifyToAddOrRemove(props.pokemon)}>
             {/* Verifica se o pokemon está na pokedex e renderiza o texto certo ao botão */}
             {indexOfPokedex === -1
-              ? "Adicionar da Pokedex"
-              : "Remover da Pokedex"}
+              ? "Adicionar"
+              : "Remover"}
           </StyledButton>
           <img src={Logo} width="50" alt="Pokdex logo" className="ml-3" />
         </Nav>

@@ -10,7 +10,7 @@ export const PokedexCard = styled.div`
 `
 export const Messege = styled.p`
     font-family: "Pokemon Solid";
-    color:#DC3545;
+    color:#007bff;
     margin: auto;
     font-size: 4em;
     @media (min-device-width: 320px) and (max-device-width: 420px) {

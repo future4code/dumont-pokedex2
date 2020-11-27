@@ -3,19 +3,19 @@ import styled from "styled-components";
 export const StyledButton = styled.button`
   z-index: 1;
   font-family: inherit;
-  color: #ffd500;
+  color: #007bff;
   font-size: 2em;
   padding: 0px 15px 10px 15px;
   outline: none;
   border:1px solid #ffd500;
   border-radius: 20px;
-  background-color: transparent;
-
+  background-color: #ffd500;
+  
   :hover {
     cursor: pointer;
     animation: jelly 0.5s;
-    color: #DC3545;
-    background-color:#ffd500;
+    color: #ffd500;
+    background-color: transparent;
   }
 
   @keyframes jelly {
