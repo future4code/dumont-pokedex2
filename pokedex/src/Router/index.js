@@ -7,14 +7,12 @@ import PokedexPage from "../Screens/Pokedex/PokedexPage";
 
 
 const Router = () => {
-  const goBack = (history) => {
-    history.goBack();
-  };
-
+  //Leva à HomePage
   const goToHomePage = (history) => {
     history.push("/");
   };
 
+  //Leva à Pokedex
   const goToPokedex = (history) => {
     history.push("/pokedex");
   };
@@ -23,14 +21,14 @@ const Router = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Header buttonTitle="Lista de pokemons" buttonFunction={goToPokedex} />
+          <Header title="Lista de pokemons" buttonFunction={goToPokedex} />
           <HomePage/>
         </Route>
         <Route exact path="/pokedetail/:pokeName">
           <PokeDetailPage />
         </Route>
         <Route exact path="/pokedex">
-          <Header buttonTitle="Pokedex" buttonFunction={goToHomePage} />
+          <Header title="Pokedex" buttonFunction={goToHomePage} />
           <PokedexPage/>
         </Route>
       </Switch>

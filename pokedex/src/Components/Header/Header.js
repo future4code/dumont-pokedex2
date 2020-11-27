@@ -8,8 +8,9 @@ import { Navbar, Nav } from "react-bootstrap";
 const Header = (props) => {
   const history = useHistory();
 
+  //Troca o nome dos botões de acordo com a página renderizada. Props estão vindo do Router.
   const ButtonTitle = () => {
-    switch (props.buttonTitle) {
+    switch (props.title) {
       case "Lista de pokemons":
         return "Pokedex";
       case "Pokedex":
@@ -19,8 +20,9 @@ const Header = (props) => {
     }
   };
 
+  //Troca os títulos de acordo com a página renderizada. Props estão vindo do Router.
   const Title = () => {
-    switch (props.buttonTitle) {
+    switch (props.title) {
       case "Lista de pokemons":
         return "PokeList";
       case "Pokedex":

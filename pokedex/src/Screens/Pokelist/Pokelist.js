@@ -1,52 +1,47 @@
-import React, {useState, useContext} from 'react';
-import { useHistory } from "react-router-dom"
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { useRequestData } from "../../Hooks/useRequestData";
-import CardPokemon from "../../Components/CardPokemon/CardPokemon"
-import GlobalStateContext from "../../Global/GlobalStateContext"
-
-
+import CardPokemon from "../../Components/CardPokemon/CardPokemon";
+import GlobalStateContext from "../../Global/GlobalStateContext";
 
 const Pokelist = (props) => {
-    const { states, setters} = useContext(GlobalStateContext)
-    const pokemon = useRequestData(props.url, undefined)
-    const history = useHistory();
+  const { states, setters } = useContext(GlobalStateContext);
 
+  //Requisição da APi através da URL do pokemon
+  const pokemon = useRequestData(props.url, undefined);
 
-    const addPokemonToPokedex = (newPokemon) => {
-        const index = states.pokemons.findIndex((i) => i.name === newPokemon.name)
+  const history = useHistory();
 
-        let newPokedex = [...states.pokedex];
-        let newPokemons = [...states.pokemons];
+  //Função de Adicionar Pokemon na Pokedex e remover da HOme
+  const addPokemonToPokedex = (newPokemon) => {
+    const index = states.pokemons.findIndex((i) => i.name === newPokemon.name);
 
-        newPokedex.push(newPokemon)
-        newPokemons.splice(index, 1)
+    let newPokedex = [...states.pokedex, newPokemon];
+    states.pokemons.splice(index, 1);
+    setters.setPokedex(newPokedex);
 
-        setters.setPokedex(newPokedex);
-        setters.setPokemons(newPokemons)
+    alert(`${newPokemon.name} agora está na sua pokedex!`);
+  };
 
-        alert(`${newPokemon.name} agora está na sua pokedex!`)   
-    }
+  // leva a página de Detalhes do Pokémon escolhido
+  const goToPokeDetailsPage = (history, pokeName) => {
+    history.push(`/pokedetail/${pokeName}`);
+  };
 
-
-
-const goToPokeDetailsPage = (history, pokeName) => {
-    history.push(`/pokedetail/${pokeName}`); 
-}
-
-return(
+  return (
+      //Se pokemon exister (for true) renderize o card.
     <div>
-    {pokemon &&
-    <CardPokemon
-        image={pokemon.sprites.other.dream_world.front_default}
-        goTo={() => addPokemonToPokedex(props.item)}
-        goToDetails={() => goToPokeDetailsPage(history, pokemon.name)}
-        removePokemonFromPokedex={props.removePokemonFromPokedex}
-        onPokedex= {props.onPokedex}
-    />
-    }
+      {pokemon && (
+        <CardPokemon
+          image={pokemon.sprites.other.dream_world.front_default}
+          goTo={() => addPokemonToPokedex(props.item)}
+          goToDetails={() => goToPokeDetailsPage(history, pokemon.name)}
+          removePokemonFromPokedex={props.removePokemonFromPokedex}
+          onPokedex={props.onPokedex}
+        />
+      )}
     </div>
-)
+  );
+};
 
-}
-
-export default Pokelist
+export default Pokelist;

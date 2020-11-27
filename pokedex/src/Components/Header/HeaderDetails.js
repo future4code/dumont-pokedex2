@@ -1,44 +1,48 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import Logo from "../../Assets/Poké_Ball_icon.svg.png";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { StyledButton } from "../Buttons/StyledButton";
 import { NavBar, NavLink } from "./styled";
 import { Navbar, Nav } from "react-bootstrap";
-import GlobalStateContext from "../../Global/GlobalStateContext"
-
+import GlobalStateContext from "../../Global/GlobalStateContext";
 
 const Header = (props) => {
   const history = useHistory();
-  const { states, setters} = useContext(GlobalStateContext)
+  const { states, setters } = useContext(GlobalStateContext);
 
-
+  //Volta para página anterior
   const goBack = () => {
     history.goBack();
   };
 
-  const indexOfPokedex = states.pokedex.findIndex((i) => i.name === props.pokemon.name)
+  //Encontra a posição do pokemon no array da pokedex
+  const indexOfPokedex = states.pokedex.findIndex(
+    (i) => i.name === props.pokemon.name
+  );
 
+  //Verifica se o pokemón está na pokedex, se estiver remove e não estiver adiciona
   const verifyToAddOrRemove = (pokemon) => {
-    const indexPokedex = states.pokedex.findIndex((i) => i.name === pokemon.name)
-    const indexPokeList = states.pokemons.findIndex((i) => i.name === pokemon.name) 
-    
-    let newPokedex = [...states.pokedex];
-    let newPokemons = [...states.pokemons];
+    const indexPokedex = states.pokedex.findIndex(
+      (i) => i.name === pokemon.name
+    );
+    const indexPokeList = states.pokemons.findIndex(
+      (i) => i.name === pokemon.name
+    );
 
-    if(indexPokedex === -1) {
-        newPokedex.push(pokemon)
-        newPokemons.splice(indexPokeList, 1)
-        window.alert("O Pokémon foi adicionado a sua Pokedex!")
-    }else {
-        newPokedex.splice(indexPokedex, 1)
-        newPokemons.push(pokemon)
-        window.alert("O Pokémon foi removido da sua Pokedex!")
+    if (indexPokedex === -1) {
+      let newPokedex = [...states.pokedex, pokemon];
+      states.pokemons.splice(indexPokeList, 1);
+      setters.setPokedex(newPokedex);
+      window.alert("O Pokémon foi adicionado a sua Pokedex!");
+    } else {
+      let newPokemons = [...states.pokemons, pokemon];
+      states.pokedex.splice(indexPokedex, 1);
+      setters.setPokemons(newPokemons);
+      window.alert("O Pokémon foi removido da sua Pokedex!");
     }
-    setters.setPokedex(newPokedex);
-    setters.setPokemons(newPokemons)
-}
+  };
 
-   return (
+  return (
     <NavBar bg="danger" expand="lg">
       <Navbar.Brand>
         <img src={Logo} width="50" alt="Pokdex logo" />
@@ -46,15 +50,16 @@ const Header = (props) => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse>
         <Nav className="mr-auto">
-          <StyledButton onClick={goBack}>
-              Voltar
-          </StyledButton>
+          <StyledButton onClick={goBack}>Voltar</StyledButton>
         </Nav>
         <NavLink>{props.pokeName}</NavLink>
         <Nav className="ml-auto">
-            <StyledButton onClick={() => verifyToAddOrRemove(props.pokemon)}>
-              {indexOfPokedex === -1 ? "Adicionar da Pokedex": "Remover a Pokedex"}
-            </StyledButton>
+          <StyledButton onClick={() => verifyToAddOrRemove(props.pokemon)}>
+            {/* Verifica se o pokemon está na pokedex e renderiza o texto certo ao botão */}
+            {indexOfPokedex === -1
+              ? "Adicionar da Pokedex"
+              : "Remover da Pokedex"}
+          </StyledButton>
           <img src={Logo} width="50" alt="Pokdex logo" className="ml-3" />
         </Nav>
       </Navbar.Collapse>

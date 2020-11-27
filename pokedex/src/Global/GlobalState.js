@@ -4,15 +4,16 @@ import { baseUrl } from "../Constant/url";
 import GlobalStateContext from "./GlobalStateContext";
 
 const GlobalState = (props) => {
-    const [pokemons, setPokemons] = useState([]);
-    const [pokedex, setPokedex] = useState([]);
+  const [pokemons, setPokemons] = useState([]);
+  const [pokedex, setPokedex] = useState([]);
 
-    useEffect(() => {
-      getPokemons();
-    }, []);
-  
+  //Simula o ciclo de vida DidMount para a requisição de Pokemons.
+  useEffect(() => {
+    getPokemons();
+  }, []);
 
-const getPokemons = () => {
+  //Requisição de dados pos Pokémons
+  const getPokemons = () => {
     axios
       .get(`${baseUrl}`)
       .then((response) => {
@@ -21,20 +22,20 @@ const getPokemons = () => {
       .catch((erro) => {
         console.log(erro);
       });
-}
+  };
 
-const states = { pokemons, pokedex};
-const setters = {setPokemons, setPokedex};
-const requests= { getPokemons}
+  const states = { pokemons, pokedex };
+  const setters = { setPokemons, setPokedex };
+  const requests = { getPokemons };
 
-const data = { states, setters, requests };
+  const data = { states, setters, requests };
 
-return(
+  return (
     <GlobalStateContext.Provider value={data}>
+      {/* //Props que indica ao global state que ele irá receber filhos */}
       {props.children}
     </GlobalStateContext.Provider>
-)
-
-}
+  );
+};
 
 export default GlobalState;
