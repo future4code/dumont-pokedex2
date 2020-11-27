@@ -35,8 +35,6 @@ const PokedexPage = () => {
         return <Pokelist url={pokemon.url} removePokemonFromPokedex={() => removePokemonFromPokedex(pokemon)} onPokedex={true}/>;
         })}
         </PokedexCard>
-
-        //fazer um ternário para quando a página estiver vazia mostrar mensagem de "pokedex vazia"
     )
 }
 
