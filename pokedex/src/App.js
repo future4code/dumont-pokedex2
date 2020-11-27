@@ -2,6 +2,7 @@ import Router from "./Router/index";
 import styled from "styled-components";
 import React from "react";
 import GlobalState from "./Global/GlobalState";
+import {Footer} from "./Components/Footer/Footer";
 import "./App.css";
 
 const DivMain = styled.div`
@@ -14,6 +15,7 @@ function App() {
       <GlobalState>
         <Router />
       </GlobalState>
+      <Footer/>
     </DivMain>
   );
 }
