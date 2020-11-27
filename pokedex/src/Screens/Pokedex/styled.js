@@ -13,4 +13,10 @@ export const Messege = styled.p`
     color:#DC3545;
     margin: auto;
     font-size: 4em;
+    @media (min-device-width: 320px) and (max-device-width: 420px) {
+        text-align: center;
+        font-size: 2em;
+        margin-top: 7em;
+        min-height: 59.5vh;
+    }
 `
