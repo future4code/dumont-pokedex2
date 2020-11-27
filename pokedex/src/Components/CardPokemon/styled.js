@@ -7,6 +7,10 @@ export const CardContainer = styled.div`
   margin: 3em 10px;
   border: 2px solid black;
   border-radius: 10px;
+  @media (min-device-width: 320px) and (max-device-width: 420px) {
+    height: 45vh;
+    margin: 2em 0px;
+  }
 `;
 
 export const ImgContainer = styled.div`
@@ -28,3 +32,13 @@ export const ButtonsContainer = styled.div`
   bottom: 20px;
   width: 90%;
 `;
+
+export const PokeName = styled.p`
+  position: absolute;
+  color: #120A8F;
+  font-weight: bold;
+  font-family: 'Press Start 2P', cursive;;
+  left: 50px;
+  top: 210px;
+  z-index: 1;
+`

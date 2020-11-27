@@ -4,6 +4,7 @@ import {
   ImgContainer,
   ButtonsContainer,
   PokeImg,
+  PokeName
 } from "./styled";
 import { Card } from "react-bootstrap";
 import { StyledButtonCard } from "../Buttons/StyledButtonCard";
@@ -17,6 +18,7 @@ function CardPokemon(props) {
           <ImgContainer>
             <PokeImg src={props.image} className="text-align" />
           </ImgContainer>
+         <PokeName>{props.name}</PokeName>
           <Card.Body>
             <ButtonsContainer>
               {/* Renderiza os textos os botões de acordo com a página atual  */}

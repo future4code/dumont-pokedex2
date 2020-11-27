@@ -34,6 +34,7 @@ const Pokelist = (props) => {
       {pokemon && (
         <CardPokemon
           image={pokemon.sprites.other.dream_world.front_default}
+          name={pokemon.name}
           goTo={() => addPokemonToPokedex(props.item)}
           goToDetails={() => goToPokeDetailsPage(history, pokemon.name)}
           removePokemonFromPokedex={props.removePokemonFromPokedex}
