@@ -27,7 +27,7 @@ const Header = (props) => {
         <NavLink>{props.pokeName}</NavLink>
         <Nav className="ml-auto">
             <StyledButton onClick={props.verify}>
-              Adicionar/Remover da Pokedex
+              {props.onPokedex ? "Remover da Pokedex": "Adicionar a Pokedex"}
             </StyledButton>
           <img src={Logo} width="50" alt="Pokdex logo" className="ml-3" />
         </Nav>

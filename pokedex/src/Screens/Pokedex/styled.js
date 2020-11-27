@@ -2,7 +2,15 @@ import styled from "styled-components"
 
 export const PokedexCard = styled.div`
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
+    min-height: 83.5vh;
+    height: 100%;
+
+`
+export const Messege = styled.p`
+    font-family: "Pokemon Solid";
+    color:#DC3545;
+    margin: auto;
+    font-size: 4em;
 `

@@ -4,6 +4,7 @@ export const PokeDetails = styled.main`
     height: 90vh;
     margin: 10px 10vw;
     display: flex;
+    font-family: "Pokemon Solid";
     justify-content: space-evenly;
 `
 
@@ -16,7 +17,10 @@ export const DivPokeImg = styled.div`
 `
 
 export const PokeImg = styled.img `
-    height: 25vh;
+    height: 33vh;
+    /* background-color: rgb(220,53,69, 0.5); */
+    border: 2px inset;
+
 `
 
 export const DivPowers = styled.div`
@@ -27,10 +31,14 @@ export const DivPowers = styled.div`
     flex-direction: column;
     justify-content: space-around;
     padding-left: 20px;
+    /* background-color: rgb(220,53,69, 0.5); */
+    border: 2px inset;
 `
 
-export const Title = styled.h2`
+export const Title = styled.h1`
     align-self: flex-start;
+    color: #DC3545;
+
 `
 
 export const DivTypeAndMoves = styled.div`
@@ -43,9 +51,12 @@ export const DivTypeAndMoves = styled.div`
 `
 
 export const DivTypes = styled.div`
-    height: 10%;
+    height: 18%;
     display: flex;
     justify-content: space-around;
+    /* background-color: rgb(220,53,69, 0.5); */
+    border: 2px inset;
+    align-items: center;
 `
 
 
@@ -54,6 +65,8 @@ export const DivMoves = styled.div`
     display: flex;
     flex-direction: column;
     padding-left: 20px;
+    /* background-color: rgb(220,53,69, 0.5); */
+    border: 2px inset;
 `
 export const DivMoveName = styled.div`
     overflow-y: auto;
