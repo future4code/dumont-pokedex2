@@ -14,13 +14,13 @@ export const Footer = () => {
   
           <DivText>
             <section>
-              <Title>Desenvolvedores:</Title>
+              <Title>Developers:</Title>
                 <p>
-                <Link href="https://github.com/DiaMont30" target="_blank">Diana Monteiro</Link> <br /> <Link href="https://github.com/nizolnier" target="_blank">Leandro Momose</Link>
+                <Link href="https://github.com/DiaMont30" target="_blank">Diana Monteiro</Link> <br /> <Link href="https://github.com/leandromomose" target="_blank">Leandro Momose</Link>
                 </p>
             </section>
             <section>
-            <Title>Api Fonte:</Title>
+            <Title>Source API:</Title>
                 <p>
                 <Link href="https://pokeapi.co" target="_blank">https://pokeapi.co/</Link>
                 </p>

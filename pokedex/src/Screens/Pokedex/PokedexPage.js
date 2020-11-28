@@ -20,7 +20,7 @@ const PokedexPage = () => {
         //Se a pokedex estiver vazia, mostre a mensagem se não mostre a lista
         <PokedexCard>    
         {states.pokedex.length === 0 ?
-        <Messege>Sua pokedex está vazia!</Messege>
+        <Messege>Your Pokedex is empty!</Messege>
         :
         states.pokedex &&
         states.pokedex.map((pokemon) => {

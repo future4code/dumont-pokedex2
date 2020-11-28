@@ -24,15 +24,15 @@ function CardPokemon(props) {
               {/* Renderiza os textos os botões de acordo com a página atual  */}
               {props.onPokedex ? (
                 <StyledButtonCard onClick={props.removePokemonFromPokedex}>
-                  Remover Pokemon
+                  Remove Pokemon
                 </StyledButtonCard>
               ) : (
                 <StyledButtonCard onClick={props.goTo}>
-                  Adicionar à Pokedex
+                  Add to Pokedex
                 </StyledButtonCard>
               )}
               <StyledButtonCard onClick={props.goToDetails}>
-                Ver Detalhes
+                See Details
               </StyledButtonCard>
             </ButtonsContainer>
           </Card.Body>

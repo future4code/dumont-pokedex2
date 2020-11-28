@@ -4,7 +4,7 @@ export const PokeDetails = styled.main`
   height: 90vh;
   margin: 10px 10vw;
   display: flex;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Press Start 2P', cursive;;
   justify-content: space-evenly;
   @media (min-device-width: 320px) and (max-device-width: 420px) {
@@ -45,12 +45,13 @@ export const DivPowers = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-size: 2em;
+    font-size: 1.9em;
     align-self: flex-start;
     padding-top: 10px;
     color: #007bff;
     @media (min-device-width: 320px) and (max-device-width: 420px) {
       align-self: center;
+      padding-bottom: 10px;
   }
 `;
 
@@ -66,11 +67,14 @@ export const DivTypeAndMoves = styled.div`
 export const DivTypes = styled.div`
   height: 18%;
   display: flex;
+  padding-top:10px;
   justify-content: space-around;
   border: 2px inset;
   align-items: center;
   @media (min-device-width: 320px) and (max-device-width: 420px) {
-    height: 15vh;  
+    padding: 20px 0;
+    flex-direction: column;
+    height: 20vh;  
   }
 `;
 
@@ -79,9 +83,10 @@ export const DivMoves = styled.div`
   display: flex;
   flex-direction: column;
   padding-left: 20px;
+  justify-content: space-around;
   border: 2px inset;
-`;
-
-export const DivMoveName = styled.div`
-  padding-top: 4em;
+  @media (min-device-width: 320px) and (max-device-width: 420px) {
+      padding: 20px 0;
+      text-align: center;
+  }
 `;

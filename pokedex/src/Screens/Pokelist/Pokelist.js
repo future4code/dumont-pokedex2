@@ -9,7 +9,6 @@ const Pokelist = (props) => {
 
   //Requisição da APi através da URL do pokemon
   const pokemon = useRequestData(props.url, undefined);
-
   const history = useHistory();
 
   //Função de Adicionar Pokemon na Pokedex e remover da HOme

@@ -43,27 +43,29 @@ const Header = (props) => {
   };
 
   return (
-    <NavBar bg="primary" expand="lg">
+    <Navbar bg="primary" expand="lg">
       <Navbar.Brand>
         <img src={Logo} width="50" alt="Pokdex logo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Brand>
+      <NavLink>It's {props.pokeName}!</NavLink>
+      </Navbar.Brand>
       <Navbar.Collapse>
-        <Nav className="mr-auto">
-          <StyledButton onClick={goBack}>Voltar</StyledButton>
-        </Nav>
-        <NavLink>{props.pokeName}</NavLink>
         <Nav className="ml-auto">
+          <StyledButton onClick={goBack}>Go back!</StyledButton>
           <StyledButton onClick={() => verifyToAddOrRemove(props.pokemon)}>
             {/* Verifica se o pokemon está na pokedex e renderiza o texto certo ao botão */}
             {indexOfPokedex === -1
-              ? "Adicionar"
-              : "Remover"}
+              ? "Add this!"
+              : "Remove this!"}
           </StyledButton>
-          <img src={Logo} width="50" alt="Pokdex logo" className="ml-3" />
+          </Nav>
+          <Nav>
+          <img src={Logo} width="50" alt="Pokdex logo" />
         </Nav>
       </Navbar.Collapse>
-    </NavBar>
+    </Navbar>
   );
 };
 

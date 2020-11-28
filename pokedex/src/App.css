@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 @font-face{
-  font-family: "Pokemon Hollow";
-  src: url(./Assets//Pokemon\ Hollow.ttf)
-}
-
-@font-face{
   font-family: "Pokemon Solid";
   src: url(./Assets/Pokemon\ Solid.ttf)
 }
