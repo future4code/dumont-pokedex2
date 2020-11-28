@@ -5,8 +5,9 @@ export const DivFooter = styled.div`
   background-color: #007bff;
   font-family: 'Press Start 2P', cursive;;
   color: #ffd500;
-  height: 25em;
+  height: 23em;
   padding: 0 10em;
+  margin-top: 4em;
   @media (min-device-width: 320px) and (max-device-width: 420px) {
     flex-direction: column;
     padding: 1em;

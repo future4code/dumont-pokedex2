@@ -39,7 +39,7 @@ const PokeDetailPage = () => {
             <PokeImg src={getDetails.sprites.back_default} />
           </DivPokeImg>
           <DivPowers>
-            <Title>Poderes</Title>
+            <Title>Powers</Title>
             {/* Map para pegar as estatísticas de poderes do pokémon */}
             {getDetails.stats.map((stat) => {
               return (
@@ -51,20 +51,18 @@ const PokeDetailPage = () => {
           </DivPowers>
           <DivTypeAndMoves>
             <DivTypes>
-              <Title>Tipo</Title>
+              <Title>Type</Title>
               {/* Map para pegar detalhe de tipo do pokémon */}
               {getDetails.types.map((type) => {
                 return <p>{type.type.name}</p>;
               })}
             </DivTypes>
             <DivMoves>
-              <Title>Movimentos</Title>
-              <DivMoveName>
+              <Title>Main Moves</Title>
                 {/* Map para pegar os movimentos do pokémon */}
                 {getDetails.moves.map((move, index) => {
                   return index < 5 && <p>{move.move.name}</p>;
                 })}
-              </DivMoveName>
             </DivMoves>
           </DivTypeAndMoves>
         </PokeDetails>

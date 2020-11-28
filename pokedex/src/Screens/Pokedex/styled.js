@@ -4,19 +4,16 @@ export const PokedexCard = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    min-height: 83.5vh;
     height: 100%;
 
 `
 export const Messege = styled.p`
-    font-family: "Pokemon Solid";
+    font-family: 'Press Start 2P', cursive;
     color:#007bff;
-    margin: auto;
-    font-size: 4em;
+    margin: 4em auto;
+    font-size: 2em;
     @media (min-device-width: 320px) and (max-device-width: 420px) {
         text-align: center;
         font-size: 2em;
-        margin-top: 7em;
-        min-height: 59.5vh;
     }
 `
