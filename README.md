@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Leandro Momose
 - Wadson Henrique
 
-Link do Surge: http://industrious-company.surge.sh/
+Link do Surge: http://imaginary-verse.surge.sh/
 
 O que funciona:
 - Todas as funcionalidades requisitadas
